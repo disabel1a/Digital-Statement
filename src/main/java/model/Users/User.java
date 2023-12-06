@@ -1,4 +1,4 @@
-package model.Users;
+package model.users;
 
 import java.lang.reflect.Field;
 
@@ -108,7 +108,7 @@ public class User {
         if (o == null || this.getClass() != o.getClass())
             return false;
         
-        Field[] fields = this.getClass().getFields();
+        Field[] fields = this.getClass().getDeclaredFields();
 
         for (Field f : fields) {
             f.setAccessible(true);

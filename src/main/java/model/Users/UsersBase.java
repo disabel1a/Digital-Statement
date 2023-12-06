@@ -1,6 +1,5 @@
-package model.Users;
+package model.users;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -67,7 +66,6 @@ public class UsersBase {
         if (o == null || this.getClass() != o.getClass())
             return false;
 
-        ArrayList<String> keys = new ArrayList<>();
         UsersBase currUsersBase = (UsersBase) o;
         for (Map.Entry<String,User> entry : users.entrySet()) {
             if (!currUsersBase.containsKey(entry.getKey()))
@@ -77,5 +75,4 @@ public class UsersBase {
         }
         return true;
     }
-
 }
