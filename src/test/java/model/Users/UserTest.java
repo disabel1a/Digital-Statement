@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import model.users.User;
+
 public class UserTest {
     private static User user1;
 
@@ -26,6 +28,14 @@ public class UserTest {
         .append("\"\n}");
 
         String expected = sb.toString();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void equalsTest() {
+        User expected = user1;
+        User actual = new User("ivmak", "1234", false, "Ivan", "Makarenko");
 
         assertEquals(expected, actual);
     }

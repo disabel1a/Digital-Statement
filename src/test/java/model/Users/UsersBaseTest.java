@@ -6,6 +6,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import model.users.User;
+import model.users.UsersBase;
+
 public class UsersBaseTest {
     private static User user1;
     private static User user2;

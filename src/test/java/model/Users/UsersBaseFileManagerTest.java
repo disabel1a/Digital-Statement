@@ -13,6 +13,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import model.users.User;
+import model.users.UsersBase;
+import model.users.UsersBaseFileManager;
+
 public class UsersBaseFileManagerTest {
     private static UsersBase ub;
     private static User user1;
