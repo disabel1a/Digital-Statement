@@ -1,38 +1,24 @@
-package model.Tables;
+package model.tables;
 
 import java.lang.reflect.Field;
 
 public class Cell {
-    private Integer xPos;
-    private Integer yPos;
     private String content;
+    private String note;
 
-    public Cell(Integer xPos, Integer yPos) {
-        this.xPos = xPos;
-        this.yPos = yPos;
+    public Cell() {
         this.content = new String();
+        this.note = new String();
     }
 
-    public Cell(Integer xPos, Integer yPos, String content) {
-        this.xPos = xPos;
-        this.yPos = yPos;
+    public Cell(String content) {
         this.content = content;
+        this.note = new String();
     }
 
-    public Integer getXPos() {
-        return this.xPos;
-    }
-
-    public void setXPos(Integer xPos) {
-        this.xPos = xPos;
-    }
-
-    public Integer getYPos() {
-        return this.yPos;
-    }
-
-    public void setYPos(Integer yPos) {
-        this.yPos = yPos;
+    public Cell(String content, String note) {
+        this.content = content;
+        this.note = note;
     }
 
     public String getContent() {
@@ -41,6 +27,23 @@ public class Cell {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getNote() {
+        return this.note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public void clear() {
+        this.content = new String();
+        this.note = new String();
+    }
+
+    public void clearNote() {
+        this.note = new String();
     }
 
     @Override
@@ -70,5 +73,28 @@ public class Cell {
         }
         sb.append("}");
         return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        
+        if (o == null || this.getClass() != o.getClass())
+            return false;
+        
+        Field[] fields = this.getClass().getDeclaredFields();
+
+        for (Field f : fields) {
+            f.setAccessible(true);
+            try {
+                if(!f.get(this).equals(f.get(o)))
+                    return false;
+            } catch (IllegalArgumentException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return true;
     }
 }
