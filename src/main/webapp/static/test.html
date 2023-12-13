@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statement</title>
+    <link rel="stylesheet" href="..\styles\main-style.css">
+    <link rel="stylesheet" href="..\styles\popup-style.css">
+    <link rel="stylesheet" href="..\styles\table-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body onload="init();">
+    <header>
+        <span>Test</span>
+        <div class="icon"></div>
+    </header>
+    <aside>
+        <button>button</button>
+        <button>button</button>
+        <button>button</button>
+        <button>button</button>
+    </aside>
+    <main>
+        <section>
+            <article class="table-article" id="statement-article">
+                <div class="row-view">
+                    <div class="cell-view-table">
+                        <table id="statement-table">
+                            <tr>
+                                <th></th>
+                                <th>Knocky</th>
+                                <th>Flor</th>
+                                <th>Ella</th>
+                                <th>Juan</th>
+                            </tr>
+                            <tr>
+                                <td>Breed</td>
+                                <td>Jack Russell</td>
+                                <td>Poodle</td>
+                                <td>Streetdog</td>
+                                <td>Cocker Spaniel</td>
+                            </tr>
+                            <tr>
+                                <td>Age</td>
+                                <td>16</td>
+                                <td>9</td>
+                                <td>10</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>Owner</td>
+                                <td>Mother-in-law</td>
+                                <td>Me</td>
+                                <td>Me</td>
+                                <td>Sister-in-law</td>
+                            </tr>
+                            <tr>
+                                <td>Eating Habits</td>
+                                <td>Eats everyone's leftovers</td>
+                                <td>Nibbles at food</td>
+                                <td>Hearty eater</td>
+                                <td>Will eat till he explodes</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="cell-view-button">
+                        <span class="material-symbols-outlined" id="add-column" onclick="addColumnBack();">add_circle</span>
+                    </div>
+                    <div class="cell-view">
+                        <span class="material-symbols-outlined" id="opt-button">construction</span>
+                    </div>
+                </div>
+                <div class="row-view">
+                    <div class="cell-view-button">
+                        <span class="material-symbols-outlined" id="add-row" onclick="addRowBack();">add_circle</span>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+    <div class="pop-up-menu" id="pop-up-menu">
+        <button type="button" id="add-content" onclick="setContent();">Добавить запись</button>
+        <button type="button" id="add-note" onclick="">Добавиить заметку</button>
+        <button type="button" id="clear-cell" onclick="clearCell();">Отчистить поле</button>
+        <button type="button" id="clear-note" onclick="">Удалить заметку</button>
+        <button type="button" id="remove-row" onclick="removeRow();">Удалить ряд</button>
+        <button type="button" id="remove-column" onclick="removeColumn();">Удалить колонку</button>
+    </div>
+    <script src="..\scripts\table-controller.js"></script>
+</body>
+</html>
