@@ -1,7 +1,7 @@
-package model.tablecontroller;
+package model.controllers;
 
+import model.dao.TableFileManager;
 import model.tables.Table;
-import model.tables.TableFileManager;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,24 +15,16 @@ import org.eclipse.tags.shaded.org.apache.bcel.classfile.Field;
 
 public class TableController {
     private Table table;
-    private File file;
+    private TableFileManager tableManager;
 
-    public TableController(File file) {
-        this.file = file;
-        TableFileManager fileManager = new TableFileManager(file);
-        try {
-            this.table = fileManager.loadFromTextFile();
-        } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
-                | InvocationTargetException | IOException e) {
-            e.printStackTrace();
-        }
+    public TableController(String mainFolder) {
+        tableManager = new TableFileManager(mainFolder);
+        table = null;
     }
 
-    public TableController(String filePath) {
-        this.file = new File(filePath);
-        TableFileManager fileManager = new TableFileManager(file);
+    public void loadTable(String subject, String group) {
         try {
-            this.table = fileManager.loadFromTextFile();
+            table = tableManager.loadFromTextFile(subject, group);
         } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
                 | InvocationTargetException | IOException e) {
             e.printStackTrace();

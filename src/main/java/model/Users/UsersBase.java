@@ -5,54 +5,72 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class UsersBase {
-    private HashMap<String, User> users;
+    private HashMap<String, String> users;
 
     public UsersBase() {
-        this.users = new HashMap<>();
+        users = new HashMap<>();
     }
 
-    public UsersBase(HashMap<String,User> users) {
+    public UsersBase(HashMap<String,String> users) {
         this.users = users;
     }
 
-    public HashMap<String,User> getUsers() {
+    public HashMap<String,String> getUsers() {
         return this.users;
     }
 
-    public void setUsers(HashMap<String,User> users) {
+    public void setUsers(HashMap<String,String> users) {
         this.users = users;
     }
 
     public void addUser(User user) {
-        users.put(user.getLogin(), user);
+        users.put(user.getLogin(), user.getPassword());
     }
 
-    public User getUser(String name) {
-        return users.get(name);
+    public User getUser(String login) {
+        if(!users.containsKey(login))
+            return null;
+        return new User(login, users.get(login));
+    }
+
+    public void removeUser(User user) {
+        users.remove(user.getLogin());
+    }
+
+    public void removeUser(String login) {
+        users.remove(login);
     }
 
     public boolean isEmpty() {
         return users.isEmpty();
     }
 
-    public boolean containsKey(String key) {
-        return users.containsKey(key);
+    public boolean containsLogin(String login) {
+        return users.containsKey(login);
+    }
+
+    public boolean containsLogin(User user) {
+        return users.containsKey(user.getLogin());
     }
 
     public void clear() {
         users.clear();
     }
 
+    public int getSize() {
+        return users.size();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        Iterator<Map.Entry<String, User>> iterator = users.entrySet().iterator();
+        Iterator<Map.Entry<String, String>> iterator = users.entrySet().iterator();
         sb.append("[");
         while (iterator.hasNext()) {
-            sb.append(iterator.next().getValue().toString());
-            if (iterator.hasNext()) {
+            User user = this.getUser(iterator.next().getKey());
+            sb.append(user.toString());
+            if(iterator.hasNext())
                 sb.append(", ");
-            }
         }
         sb.append("]");
         return sb.toString();
@@ -66,13 +84,18 @@ public class UsersBase {
         if (o == null || this.getClass() != o.getClass())
             return false;
 
-        UsersBase currUsersBase = (UsersBase) o;
-        for (Map.Entry<String,User> entry : users.entrySet()) {
-            if (!currUsersBase.containsKey(entry.getKey()))
+        UsersBase comp = (UsersBase) o;
+        if (comp.getSize() != users.size()) {
+            return false;
+        }
+    
+        for (Map.Entry<String, String> entry : users.entrySet()) {
+            if (!comp.containsLogin(entry.getKey()))
                 return false;
-            if (!currUsersBase.getUser(entry.getKey()).equals(entry.getValue()))
+            if (!comp.getUser(entry.getKey()).getPassword().equals(entry.getValue()))
                 return false;
         }
+    
         return true;
     }
 }

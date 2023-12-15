@@ -1,34 +1,43 @@
-package model.tables;
+package model.dao;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import model.tables.Cell;
+import model.tables.Table;
 
 public class TableFileManager {
-    private File file;
+    private String mainFolder;
 
-    public TableFileManager(File file) {
-        this.file = file;
-    }
-    
-    public TableFileManager(String filePath) {
-        this.file = new File(filePath);
+    public TableFileManager(String mainFolder) {
+        this.mainFolder = mainFolder;
     }
 
-    public void saveToTextFile(Table table) throws IOException {
-        FileWriter fw = new FileWriter(file);
+    public void saveToTextFile(Table table, String subject, String group) throws IOException {
+        String filePath = mainFolder + "\\tables\\" + subject + "-" + group + ".txt";
+
+        FileWriter fw = new FileWriter(filePath);
         fw.write(table.toString());
         fw.close();
     }
 
-    public Table loadFromTextFile() throws IOException, NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-        BufferedReader br = new BufferedReader(new FileReader(file));
+    public Table loadFromTextFile(String subject, String group) throws IOException, NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+        String filePath = mainFolder + "\\tables\\" + subject + "-" + group + ".txt";
+
+        BufferedReader br = new BufferedReader(new FileReader(filePath));
         Table table = null;
         while (br.ready()) {
             String line = br.readLine();
@@ -57,8 +66,6 @@ public class TableFileManager {
 
                     String[] content = line.split(":", 2);
 
-                    //System.out.println(content[1].split("\"", 3)[1]);
-
                     setter.invoke(cell, convertToFieldType(content[1].split("\"", 3)[1], f.getType()));
 
                     line = br.readLine();
@@ -83,6 +90,23 @@ public class TableFileManager {
         }
         table.get(row).add(cell);
         return table;
+    }
+
+    public List<String> getStatementsByPointer(String pointer) {
+        Path folderPath = Paths.get(mainFolder, "tables");
+        List<String> statements;
+
+        try (Stream<Path> files = Files.list(folderPath)) {
+            statements = files
+                .map(Path::getFileName)
+                .map(Path::toString)
+                .filter(name -> name.contains(pointer))
+                .collect(Collectors.toList());
+        } catch (IOException e) {
+            statements = new ArrayList<>();
+        }
+
+        return statements;
     }
 
     private static String capitalizeFirstLetter(String str) {
