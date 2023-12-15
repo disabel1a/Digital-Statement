@@ -27,7 +27,12 @@ public class TableFileManager {
     }
 
     public void saveToTextFile(Table table, String subject, String group) throws IOException {
-        String filePath = mainFolder + "\\tables\\" + subject + "-" + group + ".txt";
+        String fileName = subject + "-" + group + ".txt";
+        saveToTextFile(table, fileName);
+    }
+
+    public void saveToTextFile(Table table, String fileName) throws IOException {
+        String filePath = mainFolder + "\\tables\\" + fileName;
 
         FileWriter fw = new FileWriter(filePath);
         fw.write(table.toString());
@@ -35,8 +40,12 @@ public class TableFileManager {
     }
 
     public Table loadFromTextFile(String subject, String group) throws IOException, NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-        String filePath = mainFolder + "\\tables\\" + subject + "-" + group + ".txt";
+        String fileName = subject + "-" + group + ".txt";
+        return loadFromTextFile(fileName);
+    }
 
+    public Table loadFromTextFile(String fileName) throws IOException, NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+        String filePath = mainFolder + "\\tables\\" + fileName;
         BufferedReader br = new BufferedReader(new FileReader(filePath));
         Table table = null;
         while (br.ready()) {
