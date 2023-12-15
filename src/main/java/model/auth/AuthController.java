@@ -1,10 +1,8 @@
 package model.auth;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 
 import model.dao.UsersFileManager;
-import model.users.NamedUser;
 import model.users.User;
 import model.users.UsersBase;
 
