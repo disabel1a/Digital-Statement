@@ -1,0 +1,9 @@
+{
+  "login" : "ivmak",
+  "password" : "3505",
+  "name" : "Иван",
+  "surname" : "Макаренко",
+  "patronymic" : "Андреевич",
+  "statements" : "[Математика-5123.txt, Физика-5123.txt]",
+  "group" : "5123"
+}

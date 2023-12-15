@@ -1,4 +1,4 @@
-package model.Users;
+package model.users;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -6,54 +6,51 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import model.users.User;
-import model.users.UsersBase;
-
 public class UsersBaseTest {
+    private static UsersBase ub;
     private static User user1;
     private static User user2;
-    private static UsersBase ub;
+    private static User user3;
 
     @BeforeAll
     public static void init() {
-        user1 = new User("ivmak", "1234", false, "Ivan", "Makarenko");
-        user2 = new User("admin", "4567", true, "Oleg", "Makarov");
         ub = new UsersBase();
+        user1 = new User("ivmak", "3505");
+        user2 = new User("disabel1a", "1234");
+        user3 = new User("dimaholl", "3505");
     }
 
     @BeforeEach
-    public void setUsersBase() {
+    public void startPoint() {
+        if (!ub.isEmpty())
+            ub.clear();
         ub.addUser(user1);
         ub.addUser(user2);
+        ub.addUser(user3);
     }
 
     @Test
-    public void toStringTest() {
-        String actual = ub.toString();
+    public void equalsTest() {
+        UsersBase expected = ub;
+        UsersBase actual = new UsersBase();
+        actual.addUser(user1);
+        actual.addUser(user2);
+        actual.addUser(user3);
 
-        StringBuilder sb = new StringBuilder();
-        sb.append("[");
+        assertEquals(expected, actual);
+    }
 
-        sb.append("{\n  \"login\" : \"").append(user1.getLogin())
-        .append("\",\n  \"password\" : \"").append(user1.getPassword())
-        .append("\",\n  \"isTeacher\" : \"").append(user1.getIsTeacher())
-        .append("\",\n  \"name\" : \"").append(user1.getName())
-        .append("\",\n  \"surname\" : \"").append(user1.getSurname())
-        .append("\"\n}");
+    @Test
+    public void getUserTest() {
+        User expected = user2;
+        User actual = ub.getUser("disabel1a");
+        assertEquals(expected, actual);
+    }
 
-        sb.append(", ");
-
-        sb.append("{\n  \"login\" : \"").append(user2.getLogin())
-        .append("\",\n  \"password\" : \"").append(user2.getPassword())
-        .append("\",\n  \"isTeacher\" : \"").append(user2.getIsTeacher())
-        .append("\",\n  \"name\" : \"").append(user2.getName())
-        .append("\",\n  \"surname\" : \"").append(user2.getSurname())
-        .append("\"\n}");
-
-        sb.append("]");
-
-        String expected = sb.toString();
-
+    @Test
+    public void getUnknownUserTest() {
+        User expected = null;
+        User actual = ub.getUser("aaaaaaaaaaaaaaaaaaaaaaaaaa");
         assertEquals(expected, actual);
     }
 }

@@ -1,11 +1,9 @@
-package model.Tables;
+package model.tables;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import model.tables.Cell;
 
 public class CellTest {
     private static Cell cell;
