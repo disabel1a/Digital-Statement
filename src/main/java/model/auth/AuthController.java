@@ -16,7 +16,10 @@ public class AuthController {
     }
 
     public boolean verification(User user) {
-        if (usersBase.getUser(user.getLogin()).equals(user))
+        User findedUser = usersBase.getUser(user.getLogin());
+        if (findedUser == null)
+            return false;
+        else if (findedUser.equals(user))
             return true;
         return false;
     }

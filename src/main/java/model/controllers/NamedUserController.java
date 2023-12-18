@@ -9,33 +9,19 @@ import model.dao.UsersFileManager;
 import model.users.NamedUser;
 import model.users.Student;
 import model.users.Teacher;
-import model.users.User;
 
 public class NamedUserController {
-    private NamedUser namedUser;
     private UsersFileManager usersManager;
     private TableFileManager tableManager;
 
     public NamedUserController(String mainFolder) {
         this.usersManager = new UsersFileManager(mainFolder);
         this.tableManager = new TableFileManager(mainFolder);
-        this.namedUser = null;
     }
 
-    public void setNamedUser(User user) {
+    public Object getUserInfo(String login) {
         try {
-            this.namedUser = (NamedUser) usersManager.loadUserInfoByLogin(user.getLogin());
-        } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
-                | InvocationTargetException | IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public Object getUserInfo() {
-        if(!emptyUser())
-            throw new NullPointerException("User is empty");
-        try {
-            return usersManager.loadUserInfoByLogin(namedUser.getLogin());
+            return usersManager.loadUserInfoByLogin(login);
         } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
                 | InvocationTargetException | IOException e) {
             e.printStackTrace();
@@ -43,9 +29,7 @@ public class NamedUserController {
         return null;
     }
 
-    public void refreshStatements() throws IOException {
-        if(!emptyUser())
-            throw new NullPointerException("User is empty");
+    public void refreshStatements(NamedUser namedUser) throws IOException {
         ArrayList<String> statements = new ArrayList<>();
         Class<?> userClass = getUserClass(namedUser);
         if (userClass.equals(Student.class)) {
@@ -66,18 +50,5 @@ public class NamedUserController {
     public Class<?> getUserClass(NamedUser namedUser) {
         Class<?> namedUserClass = namedUser.getClass();
         return namedUserClass;
-    }
-
-    public Class<?> getUserClass() {
-        if (!emptyUser())
-            throw new NullPointerException(); 
-        Class<?> namedUserClass = namedUser.getClass();
-        return namedUserClass;
-    }
-
-    private boolean emptyUser() {
-        if (namedUser == null)
-            return false;
-        return true;
     }
 }
