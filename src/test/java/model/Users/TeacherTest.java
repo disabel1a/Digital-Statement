@@ -28,7 +28,7 @@ public class TeacherTest {
     @Test
     public void equalsTest() {
         Teacher expected = teacher;
-        Teacher actual = new Teacher("ivma", "3505", "Иван", "Макаренко", "Андреевич", subjects);
+        Teacher actual = new Teacher("ivmak", "3505", "Иван", "Макаренко", "Андреевич", subjects);
 
         actual.setStatements(stat);
 

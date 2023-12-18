@@ -4,6 +4,6 @@
   "name" : "Иван",
   "surname" : "Макаренко",
   "patronymic" : "Андреевич",
-  "statements" : "[Математика-5123.txt, Физика-5123.txt]",
+  "statements" : "[Some-file.txt, New-Some-file.txt]",
   "group" : "5123"
 }
