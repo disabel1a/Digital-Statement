@@ -1,0 +1,9 @@
+{
+  "login" : "disabel1a",
+  "password" : "3505",
+  "name" : "Иван",
+  "surname" : "Макаренко",
+  "patronymic" : "Иванович",
+  "statements" : "[Физика-2155.txt, Математика-2155.txt, Математика-5123.txt]",
+  "subjects" : "[Физика, Математика]"
+}
