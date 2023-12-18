@@ -30,7 +30,7 @@ header {
 
 aside {
     float: left;
-    width: 170px;
+    width: 190px;
     margin-top: 20px;
     margin-left: 10px;
     border-radius: 15px;
@@ -53,6 +53,31 @@ aside button {
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
+aside .button {
+    text-align: center;
+    padding: 7px;
+    width: fit-content;
+    min-width: 150px;
+    max-width: 150px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    max-height: 35px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    background: #DEDEDE;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+    white-space: pre-wrap;
+}
+
+aside .button:hover {
+    cursor: pointer;
+}
+
+aside .button:active {
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
 main {
     border-radius: 15px;
     background: #D9D9D9;
@@ -63,4 +88,45 @@ main {
     padding: 15px;
     display: inline-block;
     max-width: 100%;
+}
+
+article {
+    min-width: 400px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.33);
+    background: #DBDBDB;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.25) inset;
+    padding: 10px;
+    display: block;
+    max-width: 100%;
+}
+
+#teacher-subjects {
+    margin: 0 15px;
+}
+
+.subject ul {
+    margin-left: 20px;
+}
+
+.subject ul li {
+    margin: 3px 0;
+    width: fit-content;
+}
+
+.subject ul li:hover {
+    cursor: pointer;
+    color: rgb(37, 76, 100);
+}
+
+.user-info {
+    white-space: nowrap;
+    width: fit-content;
+    display: flex;
+}
+
+.user-info button {
+    margin-right: 5px;
+    border-radius: 4px;
+    border-color: white;
 }

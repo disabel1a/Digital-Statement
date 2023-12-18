@@ -11,12 +11,49 @@
 
 var rowsLength = 0;
 var columnsLength = 0;
+var actions = [];
 
 var cellId;
 var isOpt = false;
+var isTeacher;
+
 const popUpMenu = document.getElementById("pop-up-menu"); 
 
 function init() { 
+    isTeacher = getCookieValue("isTeacher");
+
+    if(isTeacher === "false") {
+        document.getElementById("opt-button").style.display = 'none';
+        return;
+    }
+
+    document.getElementById("opt-button").addEventListener("click", function(event) {
+        if(isOpt) {
+            isOpt = false;
+            document.getElementById("opt-button").style.color = "rgb(99, 99, 99)";
+            buttonsView("hidden");
+            
+            if(actions.length == 0)
+                return;
+
+            fetch('/digital-statement/table-api', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(actions)
+            });
+
+            console.log(actions);
+            actions = [];
+        }
+        else {
+            isOpt = true;
+            document.getElementById("opt-button").style.color = "blue";
+            buttonsView("visible");
+        }
+    });
+
     setIdForTableElements(0, 0);
     var cells = document.getElementsByTagName("th");  
     Array.from(cells).forEach(element => {   
@@ -35,20 +72,7 @@ function init() {
             }
         });
     });
-    
-    document.getElementById("opt-button").addEventListener("click", function(event) {
-        if(isOpt) {
-            isOpt = false;
-            document.getElementById("opt-button").style.color = "rgb(99, 99, 99)";
-            buttonsView("hidden");
-        }
-        else {
-            isOpt = true;
-            document.getElementById("opt-button").style.color = "blue";
-            buttonsView("visible");
-        }
-    });
-} 
+}
 
 function popUp(event) { 
     if(!isOpt)
@@ -61,7 +85,7 @@ function popUp(event) {
 }
 
 function setIdForTableElements(rowStart, columnStart) {
-    var table = document.getElementsByTagName("table")[0];
+    var table = document.getElementById("statement-table");
     var rows = table.getElementsByTagName("tr");
  
     for (var i = 0; i < rows.length; i++) {
@@ -98,7 +122,6 @@ function buttonsView(visual) {
 }
 
 document.getElementById("add-content").addEventListener("click", function(event) {
-
     closePopUp();
 });
 
@@ -117,6 +140,9 @@ function addRowBack() {
     }
     rowsLength++;
     table.getElementsByTagName("tbody")[0].append(row);
+
+    var action = 'addRowBack()'; 
+    actions.push(action);
 }
 
 function addColumnBack() {
@@ -139,6 +165,9 @@ function addColumnBack() {
         rows[i].appendChild(cell);
     }
     columnsLength++;
+
+    var action = 'addColumnBack()';
+    actions.push(action);
 }
 
 function setContent() {
@@ -151,16 +180,25 @@ function setContent() {
     textArea.style.height = cell.offsetHeight + "px";
     textArea.style.width = cell.offsetWidth + "px";
 
-    textArea.addEventListener("keypress", function(event) {
-        if(event.key === "Enter") {
+    textArea.addEventListener("keypress", processTextArea);
+    textArea.addEventListener("focusout", processTextArea);
+
+    function processTextArea(event) {
+        if (event.key === "Enter" || event.type === "focusout") {
+            if(event.key === "Enter")
+                cell.getElementsByTagName("textarea")[0].removeEventListener("focusout", processTextArea);
+
             cell.textContent = textArea.value;
-            cell.getElementsByTagName("textarea")[0].remove();
+            var row = getCord(cell.id, 1);
+            var column = getCord(cell.id, 2);
+            var action =  'setCellContent(' + row + ', ' + column + ', ' + textArea.value + ')';
+            actions.push(action);
+            var area = cell.getElementsByTagName("textarea")[0];
+            area.removeEventListener("focusout", processTextArea);
+            area.remove();
         }
-    });
-    textArea.addEventListener("focusout", function(event) {
-        cell.textContent = textArea.value;
-        cell.getElementsByTagName("textarea")[0].remove();
-    });
+    }
+
     textArea.addEventListener("input", function(event) {
         textArea.style.height = "auto";
         textArea.style.height = (textArea.scrollHeight) + "px";
@@ -177,6 +215,11 @@ function clearCell() {
     var cell = document.getElementById(cellId);
     cell.textContent = "";
     closePopUp();
+
+    var row = getCord(cell.id, 1);
+    var column = getCord(cell.id, 2);
+    var action = 'clearCell(' + row + ', ' + column + ')';
+    actions.push(action);
 }
 
 function clearCellNote(row, column) {
@@ -192,6 +235,10 @@ function removeRow() {
     var rowIndex = cellId.split("-", 3)[1];
     document.getElementsByTagName("table")[0].getElementsByTagName("tr")[rowIndex].remove();
     setIdForTableElements(rowIndex, 0);
+
+    var row = rowIndex;
+    var action = 'removeRow(' + row + ')';
+    actions.push(action);
 }
 
 function removeColumn() {
@@ -213,4 +260,31 @@ function removeColumn() {
 
     setIdForTableElements(0, columnIndex);
 
+    var column = columnIndex;
+    var action = 'removeColumn(' + column + ')';
+    actions.push(action);
 }
+
+function getCord(id, index) {
+    const idParts = id.split('-');
+    console.log(idParts[index]);
+    return idParts[index];
+}
+
+function getCookieValue(cookieName) {
+    const name = cookieName + "=";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const cookieArray = decodedCookie.split(';');
+    for (let i = 0; i < cookieArray.length; i++) {
+        let cookie = cookieArray[i];
+        while (cookie.charAt(0) === ' ') {
+            cookie = cookie.substring(1);
+        }
+        if (cookie.indexOf(name) === 0) {
+            return cookie.substring(name.length, cookie.length);
+        }
+    }
+    return "";
+}
+
+init();
