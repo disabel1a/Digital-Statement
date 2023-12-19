@@ -25,7 +25,8 @@ public class TableAPIServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        mainFolder = "G:\\VisualStudioCode\\Projects\\Java\\digital-statement\\digital-statement\\data";
+        //mainFolder = "G:\\VisualStudioCode\\Projects\\Java\\digital-statement\\digital-statement\\data";
+        mainFolder = "D:\\VSCode\\Projects\\Digital-Statement\\data";
         tableController = new TableController(mainFolder);
     }
 
@@ -47,20 +48,7 @@ public class TableAPIServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String fileName = (String) req.getSession(false).getAttribute("src");
-        
-        // String jsonString = req.getParameter("actions");
-
-        // Gson gson = new Gson();
-        // Type listType = new TypeToken<ArrayList<String>>(){}.getType();
-        // ArrayList<String> actionsList = gson.fromJson(jsonString, listType);
-
-        // try {
-        //     tableController.run(fileName, actionsList);
-        // } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
-        //         | InvocationTargetException e) {
-        //     e.printStackTrace();
-        // }
-
+ 
         StringBuilder stringBuilder = new StringBuilder();
         BufferedReader bufferedReader = req.getReader();
         String line;

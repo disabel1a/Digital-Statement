@@ -19,7 +19,8 @@ public class AuthPageServlet extends HttpServlet{
     @Override
     public void init() throws ServletException {
         try {
-            mainFolder = "G:\\VisualStudioCode\\Projects\\Java\\digital-statement\\digital-statement\\data";
+            //mainFolder = "G:\\VisualStudioCode\\Projects\\Java\\digital-statement\\digital-statement\\data";
+            mainFolder = "D:\\VSCode\\Projects\\Digital-Statement\\data";
             authController = new AuthController(mainFolder);
         } catch (IOException e) {
             e.printStackTrace();
@@ -42,7 +43,7 @@ public class AuthPageServlet extends HttpServlet{
         String password = req.getParameter("password");
 
         if (authController.verification(new User(login, password))) {
-            HttpSession session = req.getSession(true);
+            HttpSession session = req.getSession();
             session.setAttribute("login", login);
             resp.sendRedirect("/digital-statement/home-page");
         } else {

@@ -11,6 +11,7 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import model.controllers.NamedUserController;
 import model.users.Teacher;
 
@@ -21,17 +22,19 @@ public class SubjectsPageServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        mainFolder = "G:\\VisualStudioCode\\Projects\\Java\\digital-statement\\digital-statement\\data";
+        //mainFolder = "G:\\VisualStudioCode\\Projects\\Java\\digital-statement\\digital-statement\\data";
+        mainFolder = "D:\\VSCode\\Projects\\Digital-Statement\\data";
         userController = new NamedUserController(mainFolder);
     }
 
     @Override
     protected void service(HttpServletRequest arg0, HttpServletResponse arg1) throws ServletException, IOException {
-        if (arg0.getSession(false) == null || arg0.getSession().getAttribute("login") == null) {
-            arg0.getRequestDispatcher("/static/auth-error.html").forward(arg0, arg1);
-            return;
+        HttpSession session = arg0.getSession();
+        if (session.getAttribute("login") != null) {
+            super.service(arg0, arg1);
+        } else {
+            arg1.sendRedirect("/digital-statement/static/auth-error.html");
         }
-        super.service(arg0, arg1);
     }
 
     @Override
