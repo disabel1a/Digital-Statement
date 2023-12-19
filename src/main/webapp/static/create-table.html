@@ -11,13 +11,20 @@
         <span>Test</span>
         <div class="icon" id="user-icon"></div>
     </header>
-    <aside></aside>
+    <aside>
+    </aside>
     <main>
         <section>
-            <article><div id="teacher-subjects"></div></article>
+            <article class="table-article">
+                <form action="\digital-statement\table-creator" method="post" accept-charset="UTF-8">
+                    <input type="text" name="group">
+                    <select name="subject" id="subject-selector"></select>
+                    <button type="submit">Создать</button>
+                </form>
+            </article>
         </section>
     </main>
     <script type="module" src="\digital-statement\scripts\home-page-creator.js"></script>
-    <script type="module" src="\digital-statement\scripts\subjects-creator.js"></script>
+    <script type="module" src="\digital-statement\scripts\new-table-selector.js"></script>
 </body>
 </html>

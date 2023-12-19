@@ -1,3 +1,5 @@
+import { getCookieValue } from "./cookie-controller.js";
+
 document.addEventListener("DOMContentLoaded", function() {
     const guiElementsCookie = getCookieValue("guiElements");
     const decodedJson = decodeURIComponent(escape(atob(guiElementsCookie)));
@@ -24,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
             form.action = '/digital-statement/subjects-page';
         }
         else if (str == 'Создать ведомость') {
-            form.action = '/digital-statement/statement-creator';
+            form.action = '/digital-statement/table-creator';
         }
         else {
             var hiddenInput = document.createElement('input');
@@ -41,21 +43,25 @@ document.addEventListener("DOMContentLoaded", function() {
         });
         
         document.getElementsByTagName('aside')[0].appendChild(form);
+
+        document.getElementById("user-icon").addEventListener('click', function(){
+            window.location.href = "/digital-statement/user-info";
+        });
     });    
 });
 
-function getCookieValue(cookieName) {
-    const name = cookieName + "=";
-    const decodedCookie = decodeURIComponent(document.cookie);
-    const cookieArray = decodedCookie.split(';');
-    for (let i = 0; i < cookieArray.length; i++) {
-        let cookie = cookieArray[i];
-        while (cookie.charAt(0) === ' ') {
-            cookie = cookie.substring(1);
-        }
-        if (cookie.indexOf(name) === 0) {
-            return cookie.substring(name.length, cookie.length);
-        }
-    }
-    return "";
-}
+// function getCookieValue(cookieName) {
+//     const name = cookieName + "=";
+//     const decodedCookie = decodeURIComponent(document.cookie);
+//     const cookieArray = decodedCookie.split(';');
+//     for (let i = 0; i < cookieArray.length; i++) {
+//         let cookie = cookieArray[i];
+//         while (cookie.charAt(0) === ' ') {
+//             cookie = cookie.substring(1);
+//         }
+//         if (cookie.indexOf(name) === 0) {
+//             return cookie.substring(name.length, cookie.length);
+//         }
+//     }
+//     return "";
+// }

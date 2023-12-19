@@ -1,3 +1,5 @@
+import { getCookieValue } from "./cookie-controller.js";
+
 document.addEventListener("DOMContentLoaded", function() {
     const subjectsCookie = getCookieValue("subjects");
     var decodedJson = decodeURIComponent(escape(atob(subjectsCookie)));
@@ -44,18 +46,18 @@ document.addEventListener("DOMContentLoaded", function() {
     subjectsArticle.appendChild(list);
 });
 
-function getCookieValue(cookieName) {
-    const name = cookieName + "=";
-    const decodedCookie = decodeURIComponent(document.cookie);
-    const cookieArray = decodedCookie.split(';');
-    for (let i = 0; i < cookieArray.length; i++) {
-        let cookie = cookieArray[i];
-        while (cookie.charAt(0) === ' ') {
-            cookie = cookie.substring(1);
-        }
-        if (cookie.indexOf(name) === 0) {
-            return cookie.substring(name.length, cookie.length);
-        }
-    }
-    return "";
-}
+// function getCookieValue(cookieName) {
+//     const name = cookieName + "=";
+//     const decodedCookie = decodeURIComponent(document.cookie);
+//     const cookieArray = decodedCookie.split(';');
+//     for (let i = 0; i < cookieArray.length; i++) {
+//         let cookie = cookieArray[i];
+//         while (cookie.charAt(0) === ' ') {
+//             cookie = cookie.substring(1);
+//         }
+//         if (cookie.indexOf(name) === 0) {
+//             return cookie.substring(name.length, cookie.length);
+//         }
+//     }
+//     return "";
+// }
