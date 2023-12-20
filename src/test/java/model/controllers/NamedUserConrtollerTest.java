@@ -46,23 +46,6 @@ public class NamedUserConrtollerTest {
 
     }
 
-    // @Test
-    // public void getUserInfoTestStudent() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, IOException {
-    //     Student expected = (Student) new UsersFileManager(mainFolder).loadUserInfoByLogin(student.getLogin());
-    //     controller.setNamedUser(student);
-    //     Student actual = (Student) controller.getUserInfo();
-    //     assertEquals(expected, actual);
-    // }
-
-    // @Test
-    // public void refreshStatementsTestStudent() throws IOException {
-    //     Student expected = student;
-    //     controller.setNamedUser(student);
-    //     controller.refreshStatements();
-    //     Student actual = (Student) controller.getUserInfo();
-    //     assertEquals(expected, actual);
-    // }
-
     @Test
     public void getUserInfoTestTeacher() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, IOException {
         Teacher expected = (Teacher) new UsersFileManager(mainFolder).loadUserInfoByLogin(teacher.getLogin());

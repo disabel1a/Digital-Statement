@@ -1,11 +1,8 @@
 [{
-  "rows" : "7",
-  "columns" : "7",
+  "rows" : "6",
+  "columns" : "6",
   "table" : 
 [{
-  "content" : "",
-  "note" : ""
-}, {
   "content" : "",
   "note" : ""
 }, {
@@ -28,10 +25,7 @@
   "content" : "Table test row 2",
   "note" : ""
 }, {
-  "content" : "mamamia",
-  "note" : ""
-}, {
-  "content" : "",
+  "content" : "mama mia",
   "note" : ""
 }, {
   "content" : "",
@@ -48,9 +42,6 @@
 }], 
 [{
   "content" : "Table test row 3",
-  "note" : ""
-}, {
-  "content" : "",
   "note" : ""
 }, {
   "content" : "",
@@ -86,9 +77,6 @@
 }, {
   "content" : "",
   "note" : ""
-}, {
-  "content" : "",
-  "note" : ""
 }], 
 [{
   "content" : "Table test row 5",
@@ -108,36 +96,8 @@
 }, {
   "content" : "",
   "note" : ""
-}, {
-  "content" : "",
-  "note" : ""
 }], 
 [{
-  "content" : "",
-  "note" : ""
-}, {
-  "content" : "",
-  "note" : ""
-}, {
-  "content" : "",
-  "note" : ""
-}, {
-  "content" : "",
-  "note" : ""
-}, {
-  "content" : "",
-  "note" : ""
-}, {
-  "content" : "",
-  "note" : ""
-}, {
-  "content" : "",
-  "note" : ""
-}], 
-[{
-  "content" : "",
-  "note" : ""
-}, {
   "content" : "",
   "note" : ""
 }, {

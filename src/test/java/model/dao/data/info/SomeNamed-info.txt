@@ -1,0 +1,9 @@
+{
+  "login" : "SomeNamed",
+  "password" : "3505",
+  "name" : "Иван",
+  "surname" : "Макаренко",
+  "patronymic" : "Андреевич",
+  "statements" : "[Some-file.txt, New-Some-file.txt]",
+  "group" : "5123"
+}

@@ -1,0 +1,9 @@
+{
+  "login" : "liquid",
+  "password" : "3505",
+  "name" : "Иван",
+  "surname" : "Макаренко",
+  "patronymic" : "Иванович",
+  "statements" : "[Some-file.txt, New-Some-file.txt]",
+  "subjects" : "[Физика, Атомная энергетика]"
+}

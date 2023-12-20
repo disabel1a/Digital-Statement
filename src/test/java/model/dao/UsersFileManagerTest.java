@@ -32,8 +32,8 @@ public class UsersFileManagerTest {
         subjects.add("Физика");
         subjects.add("Атомная энергетика");
 
-        student = new Student("ivmak", "3505", "Иван", "Макаренко", "Андреевич", "5123");
-        teacher = new Teacher("disabel1a", "3505", "Иван", "Макаренко", "Иванович", subjects);
+        student = new Student("SomeNamed", "3505", "Иван", "Макаренко", "Андреевич", "5123");
+        teacher = new Teacher("liquid", "3505", "Иван", "Макаренко", "Иванович", subjects);
 
         student.setStatements(statements);
         teacher.setStatements(statements);
@@ -43,54 +43,54 @@ public class UsersFileManagerTest {
         ub.addUser(teacher);
     }
 
-    // @Test // Проверить название файлов перед проверкой
-    // public void saveTeacherInfoTest() {
-    //     try {
-    //         fileManager.saveUserInfo(teacher);
-    //     } catch (IOException e) {
-    //         e.printStackTrace();
-    //     }
-    // }
+    @Test // Проверить название файлов перед проверкой
+    public void saveTeacherInfoTest() {
+        try {
+            fileManager.saveUserInfo(teacher);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-    // @Test
-    // public void saveStudentInfoTest() {
-    //     try {
-    //         fileManager.saveUserInfo(student);
-    //     } catch (IOException e) {
-    //         e.printStackTrace();
-    //     }
-    // }
+    @Test
+    public void saveStudentInfoTest() {
+        try {
+            fileManager.saveUserInfo(student);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-    // @Test
-    // public void loadTeacherInfoByLoginTest() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, IOException {
-    //     Teacher expected = teacher;
-    //     Teacher actual = (Teacher) fileManager.loadUserInfoByLogin(teacher.getLogin());
+    @Test
+    public void loadTeacherInfoByLoginTest() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, IOException {
+        Teacher expected = teacher;
+        Teacher actual = (Teacher) fileManager.loadUserInfoByLogin(teacher.getLogin());
 
-    //     assertEquals(expected, actual);
-    // }
+        assertEquals(expected, actual);
+    }
 
-    // @Test
-    // public void loadStudentInfoByLoginTest() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, IOException {
-    //     Student expected = student;
-    //     Student actual = (Student) fileManager.loadUserInfoByLogin(student.getLogin());
+    @Test
+    public void loadStudentInfoByLoginTest() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, IOException {
+        Student expected = student;
+        Student actual = (Student) fileManager.loadUserInfoByLogin(student.getLogin());
 
-    //     assertEquals(expected, actual);
-    // }
+        assertEquals(expected, actual);
+    }
 
-    // @Test
-    // public void saveUsersBaseTest() {
-    //     try {
-    //         fileManager.saveUsersBase(ub);
-    //     } catch (IOException e) {
-    //         e.printStackTrace();
-    //     }
-    // }
+    @Test
+    public void saveUsersBaseTest() {
+        try {
+            fileManager.saveUsersBase(ub);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-    // @Test
-    // public void loadUsersBaseTest() throws IOException {
-    //     UsersBase expected = ub;
-    //     UsersBase actual = fileManager.loadUsersBase();
+    @Test
+    public void loadUsersBaseTest() throws IOException {
+        UsersBase expected = ub;
+        UsersBase actual = fileManager.loadUsersBase();
 
-    //     assertEquals(expected, actual);
-    // }
+        assertEquals(expected, actual);
+    }
 }

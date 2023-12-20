@@ -1,7 +1,7 @@
 [{
-  "login" : "ivmak",
+  "login" : "liquid",
   "password" : "3505"
 }, {
-  "login" : "disabel1a",
+  "login" : "SomeNamed",
   "password" : "3505"
 }]
