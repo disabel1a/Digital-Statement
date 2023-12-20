@@ -25,8 +25,8 @@ public class TableAPIServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        //mainFolder = "G:\\VisualStudioCode\\Projects\\Java\\digital-statement\\digital-statement\\data";
-        mainFolder = "D:\\VSCode\\Projects\\Digital-Statement\\data";
+        mainFolder = "G:\\VisualStudioCode\\Projects\\Java\\digital-statement\\digital-statement\\data";
+        //mainFolder = "D:\\VSCode\\Projects\\Digital-Statement\\data";
         tableController = new TableController(mainFolder);
     }
 
@@ -58,7 +58,7 @@ public class TableAPIServlet extends HttpServlet {
         }
 
         String jsonString = stringBuilder.toString();
-        System.out.println("POST: jsonString: " + jsonString);
+        //System.out.println("POST: jsonString: " + jsonString);
 
         Gson gson = new Gson();
         Type listType = new TypeToken<ArrayList<String>>(){}.getType();

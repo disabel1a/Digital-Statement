@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Statement</title>
-
     <link rel="stylesheet" href="\digital-statement\styles\main-style.css">
     <link rel="stylesheet" href="\digital-statement\styles\popup-style.css">
     <link rel="stylesheet" href="\digital-statement\styles\table-style.css">
@@ -12,8 +11,8 @@
 </head>
 <body>
     <header>
-        <span>Test</span>
-        <div class="icon" id="user-icon"></div>
+        <span>Ведомость</span>
+        <div class="icon" id="user-icon"><span class="material-symbols-outlined">person</span></div>
     </header>
     <aside></aside>
     <main>
@@ -41,9 +40,9 @@
     </main>
     <div class="pop-up-menu" id="pop-up-menu">
         <button type="button" id="add-content" onclick="setContent();">Добавить запись</button>
-        <button type="button" id="add-note" onclick="">Добавить заметку</button>
+        <!-- <button type="button" id="add-note" onclick="">Добавить заметку</button> -->
         <button type="button" id="clear-cell" onclick="clearCell();">Отчистить поле</button>
-        <button type="button" id="clear-note" onclick="">Удалить заметку</button>
+        <!-- <button type="button" id="clear-note" onclick="">Удалить заметку</button> -->
         <button type="button" id="remove-row" onclick="removeRow();">Удалить ряд</button>
         <button type="button" id="remove-column" onclick="removeColumn();">Удалить колонку</button>
     </div>

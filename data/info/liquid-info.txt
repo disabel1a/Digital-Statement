@@ -1,0 +1,9 @@
+{
+  "login" : "liquid",
+  "password" : "liquid1234",
+  "name" : "Слободан",
+  "surname" : "Жидко",
+  "patronymic" : "Жидкович",
+  "statements" : "[Математика-5123.txt, Проектирование помехоусточивых сетей-5123.txt]",
+  "group" : "5123"
+}

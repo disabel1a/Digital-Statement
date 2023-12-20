@@ -27,6 +27,12 @@ header {
     background-color: rgb(172, 167, 167);
     border: 2px solid;
     border-radius: 100%;
+    text-align: center;
+}
+
+.icon span {
+    margin-top: 2.5px;
+    color: #e0e0e0;
 }
 
 .icon:hover {
@@ -67,7 +73,7 @@ aside .button {
     margin-bottom: 10px;
     margin-left: 10px;
     margin-right: 10px;
-    max-height: 35px;
+    min-height: fit-content;
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.25);
     background: #DEDEDE;

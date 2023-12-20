@@ -2,6 +2,7 @@ package servlets;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URLEncoder;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -19,8 +20,8 @@ public class CreateTableServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        //mainFolder = "G:\\VisualStudioCode\\Projects\\Java\\digital-statement\\digital-statement\\data";
-        mainFolder = "D:\\VSCode\\Projects\\Digital-Statement\\data";
+        mainFolder = "G:\\VisualStudioCode\\Projects\\Java\\digital-statement\\digital-statement\\data";
+        //mainFolder = "D:\\VSCode\\Projects\\Digital-Statement\\data";
         fileManager = new TableFileManager(mainFolder);
     }
 
@@ -52,7 +53,9 @@ public class CreateTableServlet extends HttpServlet {
             fileManager.saveToTextFile(table, src);
         }
 
-        req.setAttribute("src", src);
-        req.getRequestDispatcher("/statement-page").forward(req, resp);
+        String redirectURL = "/digital-statement/statement-page";
+        redirectURL += "?src=" + URLEncoder.encode(src, "UTF-8");
+
+        resp.sendRedirect(redirectURL);
     }
 }

@@ -20,8 +20,8 @@ public class UserInfoServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        //mainFolder = "G:\\VisualStudioCode\\Projects\\Java\\digital-statement\\digital-statement\\data";
-        mainFolder = "D:\\VSCode\\Projects\\Digital-Statement\\data";
+        mainFolder = "G:\\VisualStudioCode\\Projects\\Java\\digital-statement\\digital-statement\\data";
+        //mainFolder = "D:\\VSCode\\Projects\\Digital-Statement\\data";
         userController = new NamedUserController(mainFolder);
     }
 

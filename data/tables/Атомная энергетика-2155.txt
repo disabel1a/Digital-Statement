@@ -1,0 +1,253 @@
+[{
+  "rows" : "8",
+  "columns" : "10",
+  "table" : 
+[{
+  "content" : "",
+  "note" : ""
+}, {
+  "content" : "18.09",
+  "note" : ""
+}, {
+  "content" : "25.09",
+  "note" : ""
+}, {
+  "content" : "Проверочная работа",
+  "note" : ""
+}, {
+  "content" : "13.10",
+  "note" : ""
+}, {
+  "content" : "17.10",
+  "note" : ""
+}, {
+  "content" : "26.10",
+  "note" : ""
+}, {
+  "content" : "ЛР 1",
+  "note" : ""
+}, {
+  "content" : "04.11",
+  "note" : ""
+}, {
+  "content" : "",
+  "note" : ""
+}], 
+[{
+  "content" : "Макаренко Иван Андреевич",
+  "note" : ""
+}, {
+  "content" : "+",
+  "note" : ""
+}, {
+  "content" : "н",
+  "note" : ""
+}, {
+  "content" : "7/10",
+  "note" : ""
+}, {
+  "content" : "+",
+  "note" : ""
+}, {
+  "content" : "+",
+  "note" : ""
+}, {
+  "content" : "+",
+  "note" : ""
+}, {
+  "content" : "5",
+  "note" : ""
+}, {
+  "content" : "",
+  "note" : ""
+}, {
+  "content" : "",
+  "note" : ""
+}], 
+[{
+  "content" : "Гурьянов Анатолий Викторович",
+  "note" : ""
+}, {
+  "content" : "+",
+  "note" : ""
+}, {
+  "content" : "+",
+  "note" : ""
+}, {
+  "content" : "8/10",
+  "note" : ""
+}, {
+  "content" : "+",
+  "note" : ""
+}, {
+  "content" : "+",
+  "note" : ""
+}, {
+  "content" : "+",
+  "note" : ""
+}, {
+  "content" : "4",
+  "note" : ""
+}, {
+  "content" : "",
+  "note" : ""
+}, {
+  "content" : "",
+  "note" : ""
+}], 
+[{
+  "content" : "Зубенко Михаил Петрович",
+  "note" : ""
+}, {
+  "content" : "+",
+  "note" : ""
+}, {
+  "content" : "+",
+  "note" : ""
+}, {
+  "content" : "5/10",
+  "note" : ""
+}, {
+  "content" : "н",
+  "note" : ""
+}, {
+  "content" : "н",
+  "note" : ""
+}, {
+  "content" : "+",
+  "note" : ""
+}, {
+  "content" : "3",
+  "note" : ""
+}, {
+  "content" : "",
+  "note" : ""
+}, {
+  "content" : "",
+  "note" : ""
+}], 
+[{
+  "content" : "Туркмен Каракум Ашотович",
+  "note" : ""
+}, {
+  "content" : "+",
+  "note" : ""
+}, {
+  "content" : "б",
+  "note" : ""
+}, {
+  "content" : "10/10",
+  "note" : ""
+}, {
+  "content" : "б",
+  "note" : ""
+}, {
+  "content" : "+",
+  "note" : ""
+}, {
+  "content" : "+",
+  "note" : ""
+}, {
+  "content" : "4",
+  "note" : ""
+}, {
+  "content" : "",
+  "note" : ""
+}, {
+  "content" : "",
+  "note" : ""
+}], 
+[{
+  "content" : "Паркер Питер Бенович",
+  "note" : ""
+}, {
+  "content" : "+",
+  "note" : ""
+}, {
+  "content" : "+",
+  "note" : ""
+}, {
+  "content" : "5/10",
+  "note" : ""
+}, {
+  "content" : "+",
+  "note" : ""
+}, {
+  "content" : "+",
+  "note" : ""
+}, {
+  "content" : "+",
+  "note" : ""
+}, {
+  "content" : "4",
+  "note" : ""
+}, {
+  "content" : "5",
+  "note" : ""
+}, {
+  "content" : "",
+  "note" : ""
+}], 
+[{
+  "content" : "Лимонов Эдуард Вениаминович",
+  "note" : ""
+}, {
+  "content" : "н",
+  "note" : ""
+}, {
+  "content" : "+",
+  "note" : ""
+}, {
+  "content" : "8/10",
+  "note" : ""
+}, {
+  "content" : "+",
+  "note" : ""
+}, {
+  "content" : "+",
+  "note" : ""
+}, {
+  "content" : "+",
+  "note" : ""
+}, {
+  "content" : "5",
+  "note" : ""
+}, {
+  "content" : "",
+  "note" : ""
+}, {
+  "content" : "",
+  "note" : ""
+}], 
+[{
+  "content" : "",
+  "note" : ""
+}, {
+  "content" : "",
+  "note" : ""
+}, {
+  "content" : "",
+  "note" : ""
+}, {
+  "content" : "",
+  "note" : ""
+}, {
+  "content" : "",
+  "note" : ""
+}, {
+  "content" : "",
+  "note" : ""
+}, {
+  "content" : "",
+  "note" : ""
+}, {
+  "content" : "",
+  "note" : ""
+}, {
+  "content" : "",
+  "note" : ""
+}, {
+  "content" : "",
+  "note" : ""
+}]
+}]

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Statement</title>
     <link rel="stylesheet" href="\digital-statement\styles\main-style.css">
     <link rel="stylesheet" href="styles\main-style.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
@@ -19,7 +19,7 @@
         Boolean isTeacher = (Boolean) session.getAttribute("isTeacher");
     %>
     <header>
-        <span>Test</span>
+        <span>Ведомость</span>
     </header>
     <aside>
         <form class="button" action="/digital-statement/home-page" method="get">На галвную</form>

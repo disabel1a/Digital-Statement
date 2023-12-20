@@ -19,8 +19,8 @@ public class AuthPageServlet extends HttpServlet{
     @Override
     public void init() throws ServletException {
         try {
-            //mainFolder = "G:\\VisualStudioCode\\Projects\\Java\\digital-statement\\digital-statement\\data";
-            mainFolder = "D:\\VSCode\\Projects\\Digital-Statement\\data";
+            mainFolder = "G:\\VisualStudioCode\\Projects\\Java\\digital-statement\\digital-statement\\data";
+            //mainFolder = "D:\\VSCode\\Projects\\Digital-Statement\\data";
             authController = new AuthController(mainFolder);
         } catch (IOException e) {
             e.printStackTrace();
